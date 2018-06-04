@@ -1,6 +1,10 @@
 /*
  * Create a list that holds all of your cards
  */
+let cardsArray = ['fa-diamond','fa-paper-plane-o','fa-anchor',
+'fa-bolt','fa-cube','fa-leaf','fa-bycicle','fa-bomb',
+'fa-diamond','fa-paper-plane-o','fa-anchor',
+'fa-bolt','fa-cube','fa-leaf','fa-bycicle','fa-bomb'];
 
 
 /*
