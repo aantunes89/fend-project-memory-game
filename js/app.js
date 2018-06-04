@@ -29,6 +29,19 @@ function shuffle(array) {
     return array;
 }
 
+function startGame(){
+    let cards = shuffle(cardsArray);
+
+    for(let i = 0 ; i < cards.length ; i++){
+        let liElement = document.createElement('li');
+        let iElement = document.createElement('i');
+
+        liElement.classList.add('cards');
+        iElement.classList.add('fa');
+        iElement.classList.add(cards[i]);
+    }
+}
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
