@@ -6,6 +6,7 @@ let cardsArray = ['fa-diamond','fa-paper-plane-o','fa-anchor',
 'fa-diamond','fa-paper-plane-o','fa-anchor',
 'fa-bolt','fa-cube','fa-leaf','fa-bycicle','fa-bomb'];
 
+let deck = document.getElementsByClassName('deck');
 
 /*
  * Display the cards on the page
@@ -39,6 +40,9 @@ function startGame(){
         liElement.classList.add('cards');
         iElement.classList.add('fa');
         iElement.classList.add(cards[i]);
+
+        liElement.appendChild(iElement);
+        deck[0].appendChild(liElement);
     }
 }
 
