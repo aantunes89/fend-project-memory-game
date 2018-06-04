@@ -2,11 +2,13 @@
  * Create a list that holds all of your cards
  */
 let cardsArray = ['fa-diamond','fa-paper-plane-o','fa-anchor',
-'fa-bolt','fa-cube','fa-leaf','fa-bycicle','fa-bomb',
+'fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb',
 'fa-diamond','fa-paper-plane-o','fa-anchor',
-'fa-bolt','fa-cube','fa-leaf','fa-bycicle','fa-bomb'];
+'fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb'];
 
 let deck = document.getElementsByClassName('deck');
+
+let cardClass = document.getElementsByClassName('card');
 
 /*
  * Display the cards on the page
@@ -45,9 +47,15 @@ function startGame(){
 
         liElement.appendChild(iElement);
         deck[0].appendChild(liElement);
+
+        cardClass[i].addEventListener('click', flipCard, false);
     }
 }
 
+function flipCard(){
+    this.classList.toggle('open');
+    this.classList.toggle('show');
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
