@@ -30,6 +30,8 @@ function shuffle(array) {
     return array;
 }
 
+startGame()
+
 function startGame(){
     let cards = shuffle(cardsArray);
 
@@ -37,7 +39,7 @@ function startGame(){
         let liElement = document.createElement('li');
         let iElement = document.createElement('i');
 
-        liElement.classList.add('cards');
+        liElement.classList.add('card');
         iElement.classList.add('fa');
         iElement.classList.add(cards[i]);
 
