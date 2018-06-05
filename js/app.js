@@ -36,6 +36,8 @@ function shuffle(array) {
 startGame()
 
 function startGame(){
+    flippedCards[];
+
     let cards = shuffle(cardsArray);
 
     for(let i = 0 ; i < cards.length ; i++){
@@ -58,7 +60,6 @@ function flipCard(){
         this.classList.toggle('open');
         this.classList.toggle('show');
     }
-
 }
 
 
