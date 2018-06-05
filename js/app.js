@@ -10,6 +10,7 @@ let deck = document.getElementsByClassName('deck');
 
 let cardClass = document.getElementsByClassName('card');
 
+let flippedCards = [];
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -53,9 +54,14 @@ function startGame(){
 }
 
 function flipCard(){
-    this.classList.toggle('open');
-    this.classList.toggle('show');
+    if(flippedCards.length < 2){
+        this.classList.toggle('open');
+        this.classList.toggle('show');
+    }
+
 }
+
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
