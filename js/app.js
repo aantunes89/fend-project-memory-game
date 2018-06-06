@@ -60,6 +60,11 @@ function startGame(){
 
 function flipCard(){
     if(flippedCards.length < 2){
+
+        if(this.classList.length > 1){
+            return;
+        }
+
         this.classList.toggle('open');
         this.classList.toggle('show');
 
