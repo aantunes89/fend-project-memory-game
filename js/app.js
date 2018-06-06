@@ -11,6 +11,8 @@ let deck = document.getElementsByClassName('deck');
 let cardClass = document.getElementsByClassName('card');
 
 let flippedCards = [];
+
+let matched = [];
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -36,7 +38,7 @@ function shuffle(array) {
 startGame()
 
 function startGame(){
-    console.log('1');
+    matched = [];
 
     flippedCards = [];
 
@@ -89,6 +91,7 @@ function match(){
             flippedCards[1].classList.toggle('match');
 
             flippedCards = [];
+            matched++;
         }
     }
 }
