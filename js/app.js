@@ -36,11 +36,14 @@ function shuffle(array) {
 startGame()
 
 function startGame(){
-    flippedCards[];
+    console.log('1');
+
+    flippedCards = [];
 
     let cards = shuffle(cardsArray);
 
     for(let i = 0 ; i < cards.length ; i++){
+        console.log('2');
         let liElement = document.createElement('li');
         let iElement = document.createElement('i');
 
@@ -53,12 +56,14 @@ function startGame(){
 
         cardClass[i].addEventListener('click', flipCard, false);
     }
-}
+};
 
 function flipCard(){
-    if(flippedCards.length < 2){
+    if(flippedCards < 2){
         this.classList.toggle('open');
         this.classList.toggle('show');
+
+        flippedCards.push(this);
     }
 }
 
