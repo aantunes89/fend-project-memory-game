@@ -59,11 +59,19 @@ function startGame(){
 };
 
 function flipCard(){
-    if(flippedCards < 2){
+    if(flippedCards.length < 2){
         this.classList.toggle('open');
         this.classList.toggle('show');
 
         flippedCards.push(this);
+    }
+    else {
+        flippedCards[0].classList.toggle('open');
+        flippedCards[0].classList.toggle('show');
+        flippedCards[1].classList.toggle('open');
+        flippedCards[1].classList.toggle('show');
+        
+        flippedCards = [];
     }
 }
 
