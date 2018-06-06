@@ -74,14 +74,6 @@ function flipCard(){
 
         match();
     }
-    else {
-        flippedCards[0].classList.toggle('open');
-        flippedCards[0].classList.toggle('show');
-        flippedCards[1].classList.toggle('open');
-        flippedCards[1].classList.toggle('show');
-        
-        flippedCards = [];
-    }
 }
 
 function match(){
@@ -93,11 +85,23 @@ function match(){
             flippedCards = [];
             matched++;
         }
+        else{
+            missed();
+        }
     }
 }
 
 
-
+function missed(){
+    setTimeout(function(){
+        flippedCards[0].classList.toggle('open');
+        flippedCards[0].classList.toggle('show');
+        flippedCards[1].classList.toggle('open');
+        flippedCards[1].classList.toggle('show');
+        
+        flippedCards = [];
+    },1000);
+}
 
 
 
