@@ -69,9 +69,8 @@ function flipCard(){
         if(this.classList.length > 1){
             return;
         }
-
-        this.classList.toggle('open');
-        this.classList.toggle('show');
+        
+        this.classList.add('open','show');
 
         flippedCards.push(this);
 
@@ -81,7 +80,7 @@ function flipCard(){
 
 function match(){
     if (flippedCards.length === 2){
-        if (flippedCards[0].childNodes[0].classList[1] === flippedCards[1].childNodes[0].classList[1]) {
+        if (flippedCards[0].innerHTML === flippedCards[1].innerHTML) {
             flippedCards[0].classList.toggle('match');
             flippedCards[1].classList.toggle('match');
 
