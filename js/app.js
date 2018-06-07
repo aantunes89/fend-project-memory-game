@@ -13,6 +13,9 @@ let cardClass = document.getElementsByClassName('card');
 let flippedCards = [];
 
 let matched = [];
+
+let counter = 0;
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -88,6 +91,7 @@ function match(){
         else{
             missed();
         }
+        movesCounter()
     }
 }
 
@@ -103,7 +107,11 @@ function missed(){
     },1000);
 }
 
-
+function movesCounter(){
+    if(flippedCards.length === 2){
+        document.getElementsByClassName('moves')[0].innerHTML = ++counter;
+    }
+}
 
 
 
