@@ -6,15 +6,13 @@ let cardsArray = ['fa-diamond','fa-paper-plane-o','fa-anchor',
 'fa-diamond','fa-paper-plane-o','fa-anchor',
 'fa-bolt','fa-cube','fa-leaf','fa-bicycle','fa-bomb'];
 
-let deck = document.getElementsByClassName('deck');
+let deck = document.querySelector(".deck");
 
-let cardClass = document.getElementsByClassName('card');
+let cardClass = document.getElementsByClassName("card");
 
 let flippedCards = [];
 
 let matched = [];
-
-let counter = 0;
 
 /*
  * Display the cards on the page
@@ -42,22 +40,20 @@ startGame()
 
 function startGame(){
     matched = [];
-
     flippedCards = [];
+    shuffle(cardsArray);
 
-    let cards = shuffle(cardsArray);
-
-    for(let i = 0 ; i < cards.length ; i++){
+    for(let i = 0 ; i < cardsArray.length ; i++){
         
         let liElement = document.createElement('li');
         let iElement = document.createElement('i');
 
         liElement.classList.add('card');
         iElement.classList.add('fa');
-        iElement.classList.add(cards[i]);
+        iElement.classList.add(cardsArray[i]);
 
         liElement.appendChild(iElement);
-        deck[0].appendChild(liElement);
+        deck.appendChild(liElement);
 
         cardClass[i].addEventListener('click', flipCard, false);
     }
@@ -107,10 +103,12 @@ function missed(){
     },1000);
 }
 
+let counter = 0;
+const moves = document.querySelector(".moves");
+moves.innerHTML = 0;
 function movesCounter(){
-    if(flippedCards.length === 2){
-        document.getElementsByClassName('moves')[0].innerHTML = ++counter;
-    }
+    counter++;
+    moves.innerHTML = counter;
 }
 
 function gameOver() {
@@ -121,9 +119,13 @@ function gameOver() {
     }
 }
 
-/*
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
+//RESTART FUNCTION
+const restart = document.querySelector('.restart');
+restart.addEventListener('click', function() {
+    
+    deck.innerHTML = "";
+    startGame();
+    matched = [];
+    counter = 0;
+    moves.innerHTML = counter;
+});
