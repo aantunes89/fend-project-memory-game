@@ -48,7 +48,7 @@ function startGame(){
     let cards = shuffle(cardsArray);
 
     for(let i = 0 ; i < cards.length ; i++){
-        console.log('2');
+        
         let liElement = document.createElement('li');
         let iElement = document.createElement('i');
 
@@ -84,14 +84,15 @@ function match(){
             flippedCards[0].classList.toggle('match');
             flippedCards[1].classList.toggle('match');
 
+            matched.push(flippedCards[0],flippedCards[1]);
             flippedCards = [];
-            matched++;
         }
         else{
             missed();
         }
         movesCounter()
     }
+    gameOver();
 }
 
 
@@ -112,7 +113,13 @@ function movesCounter(){
     }
 }
 
-
+function gameOver() {
+    if(matched.length === cardsArray.length) {
+        setTimeout(function(){
+            alert('GAME OVER!!');
+        },800);
+    }
+}
 
 /*
  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
