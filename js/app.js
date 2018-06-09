@@ -91,18 +91,30 @@ function movesCounter() {
     counter.innerHTML = move;
 }
 
+
 /*
  *  GAME OVER
  */
 
- function gameOver() {
+function gameOver() {
     setTimeout(function(){
         if(matched.length === icons.length) {
-            alert("CONGRATULATIONS!!")
+            alert("CONGRATULATIONS!!");
         }
     },700);
- }
+}
 
+/*
+ *  RESTART GAME 
+ */
+
+let reset = document.querySelector(".restart");
+function restart(){
+    reset.addEventListener("click", function() {
+        deck.innerHTML = "";
+        init();
+    });
+}
 
 
 
@@ -115,6 +127,7 @@ function init() {
     // shuffle(icons);
     setCards();
     matched = [];
+    restart();
 }
 
 init();
