@@ -18,11 +18,41 @@ function setCards() {
         liCard.innerHTML = " <i class='" + icons[i] + "'></i>";
         
         deck.appendChild(liCard);
-        cards[i].addEventListener("click", function(){
-            this.classList.add('open', 'show');
-        });
+        cards[i].addEventListener("click", selectCards);
     }
 }
+
+/*
+ *  SELECT CARD 
+ */
+
+ let selected = [];
+ function selectCards() {
+    if(selected.length < 2){
+        if(this.classList.length > 2){
+            return;
+        }
+        
+        this.classList.add("open" ,"show");      
+        selected.push(this);
+    }
+ } 
+
+/*
+ *  MISSED TRY 
+ */
+ 
+function missed() {
+    setTimeout(function missed(){
+        selected[0].classList.remove("open" ,"show");
+        selected[1].classList.remove("open" ,"show");
+
+        selected = [];
+    },500);    
+}
+
+
+
 
 setCards();
 
