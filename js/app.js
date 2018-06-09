@@ -111,18 +111,22 @@ function gameOver() {
  *  RESTART GAME 
  */
 
- function refresh() {
+ // CAN BE REUSED!!!
+function refresh() {
     deck.innerHTML = "";
     init();
     move = 0;
     counter.innerHTML = 0;
+    stars[0].classList.add("fa-star");
+    stars[1].classList.add("fa-star");
 }
-
 
 function restart(){
     const reset = document.querySelector(".restart");
     reset.addEventListener("click",refresh );
 }
+
+
 
 /*
  *  RATING FUNCTION 
@@ -135,16 +139,23 @@ function rating() {
         if (move > 18) {
             stars[1].classList.remove("fa-star");
         }
-    }
+    } 
 }
 
+
+
 /*
- *  GAME CLOCK
+ *  TIMER
  */
 
 function clock() {
-    setInterval(refresh, 5000);
+    setInterval(refresh, 60000);
 }
+
+
+
+
+
 
 
 
