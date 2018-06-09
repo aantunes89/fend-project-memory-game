@@ -25,6 +25,7 @@ let stars = document.querySelectorAll(".fa-star");
 // ----FUNCTIONS----- //
 
 
+
 /*
  *  SET CARDS  
  */
@@ -39,6 +40,28 @@ function setCards() {
         cards[i].addEventListener("click", selectCards);
     }
 }
+
+
+
+/*
+ *  UDACITY SHUFFLE FUNCTION 
+ */
+
+// Shuffle function from http://stackoverflow.com/a/2450976
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
 
 
 /*
@@ -60,6 +83,7 @@ function selectCards() {
 } 
 
 
+
 /*
  *  MISSED TRY 
  */
@@ -72,6 +96,7 @@ function missed() {
         selected = [];
     },500);    
 }
+
 
 
 /*
@@ -100,6 +125,7 @@ function match() {
 }
 
 
+
 /*
  *  COUNT MOVES 
  */
@@ -114,6 +140,7 @@ function movesCounter() {
 }
 
 
+
 /*
  *  GAME OVER
  */
@@ -122,9 +149,12 @@ function gameOver() {
     setTimeout(function(){
         if(matched.length === icons.length) {
             alert("CONGRATULATIONS!!");
+            
         }
     },700);
 }
+
+
 
 /*
  *  RESTART GAME 
@@ -198,17 +228,3 @@ init();
 
 
 
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-}
