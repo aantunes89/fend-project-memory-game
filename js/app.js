@@ -1,5 +1,5 @@
 /*
- * CREATE AND SET CARDS
+ *  VARIABLES
  */
 
 let icons = ["fa fa-diamond","fa fa-diamond","fa fa-paper-plane-o","fa fa-paper-plane-o",
@@ -10,6 +10,24 @@ let icons = ["fa fa-diamond","fa fa-diamond","fa fa-paper-plane-o","fa fa-paper-
 let deck = document.querySelector(".deck");
 
 let cards = document.getElementsByClassName("card");
+
+let selected = [];
+
+let matched = [];
+
+let move = 0;
+let counter = document.querySelector(".moves");
+counter.innerHTML = 0;
+
+let stars = document.querySelectorAll(".fa-star");
+
+
+// ----FUNCTIONS----- //
+
+
+/*
+ *  SET CARDS  
+ */
 
 function setCards() {
     for(let i = 0; i < icons.length; i++ ) {
@@ -22,12 +40,13 @@ function setCards() {
     }
 }
 
+
 /*
- *  SELECT CARD 
+ *  SELECT CARDS 
  */
 
- let selected = [];
- function selectCards() {
+ 
+function selectCards() {
     if(selected.length < 2){
         if(this.classList.length > 1){
             return;
@@ -38,7 +57,8 @@ function setCards() {
         // CHECK IF IT IS A MATCH
         match();
     }
- } 
+} 
+
 
 /*
  *  MISSED TRY 
@@ -53,11 +73,12 @@ function missed() {
     },500);    
 }
 
+
 /*
  *  MATCH FUNCTION 
  */
 
-let matched = [];
+
 function match() {
     if(selected.length === 2){
         if(selected[0].innerHTML === selected[1].innerHTML) {
@@ -83,9 +104,7 @@ function match() {
  *  COUNT MOVES 
  */
 
-let move = 0;
-let counter = document.querySelector(".moves");
-counter.innerHTML = 0;
+
 function movesCounter() { 
     move++;
     counter.innerHTML = move;
@@ -132,7 +151,7 @@ function restart(){
  *  RATING FUNCTION 
  */
 
-let stars = document.querySelectorAll(".fa-star");
+
 function rating() {
     if(move > 12){
         stars[0].classList.remove("fa-star");
@@ -177,92 +196,6 @@ init();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// let flippedCards = [];
-
-// let matched = [];
-
-
-// function flipCard(){
-//     if(flippedCards.length < 2){
-
-//         if(this.classList.length > 1){
-//             return;
-//         }
-        
-//         this.classList.add('open','show');
-
-//         flippedCards.push(this);
-
-//         match();
-//     }
-// }
-
-// function match(){
-//     if (flippedCards.length === 2){
-//         if (flippedCards[0].innerHTML === flippedCards[1].innerHTML) {
-//             flippedCards[0].classList.toggle('match');
-//             flippedCards[1].classList.toggle('match');
-
-//             matched.push(flippedCards[0],flippedCards[1]);
-//             flippedCards = [];
-//         }
-//         else{
-//             missed();
-//         }
-//         movesCounter()
-//     }
-//     gameOver();
-// }
-
-
-// function missed(){
-//     setTimeout(function(){
-//         flippedCards[0].classList.toggle('open');
-//         flippedCards[0].classList.toggle('show');
-//         flippedCards[1].classList.toggle('open');
-//         flippedCards[1].classList.toggle('show');
-        
-//         flippedCards = [];
-//     },1000);
-// }
-
-// let counter = 0;
-// const moves = document.querySelector(".moves");
-// moves.innerHTML = 0;
-// function movesCounter(){
-//     counter++;
-//     moves.innerHTML = counter;
-// }
-
-// function gameOver() {
-//     if(matched.length === icons.length) {
-//         setTimeout(function(){
-//             alert('GAME OVER!!');
-//         },800);
-//     }
-// }
-
-// //RESTART FUNCTION
-// const restart = document.querySelector('.restart');
-// restart.addEventListener('click', function() {
-    
-//     deck.innerHTML = "";
-//     startGame();
-//     matched = [];
-//     counter = 0;
-//     moves.innerHTML = counter;
-// });
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
