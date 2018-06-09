@@ -35,6 +35,7 @@ function setCards() {
         this.classList.add("open" ,"show");      
         selected.push(this);
         
+        // CHECK IF IT IS A MATCH
         match();
     }
  } 
@@ -62,13 +63,18 @@ function match() {
         if(selected[0].innerHTML === selected[1].innerHTML) {
             selected[0].classList.toggle("match");
             selected[1].classList.toggle("match");
+            
             matched.push(selected[0], selected[1]);
 
             selected = [];
         } else {
+            //IF IT'S NOT A MATCH FACE CARDS DOWN
             missed();
         }
+        //  ADD A MOVE TO THE COUNTER
         movesCounter();
+        //  IF ALL CARDS ARE MATCHED THAN GAME OVER
+        gameOver() 
     }
 }
 
@@ -85,7 +91,17 @@ function movesCounter() {
     counter.innerHTML = move;
 }
 
+/*
+ *  GAME OVER
+ */
 
+ function gameOver() {
+    setTimeout(function(){
+        if(matched.length === icons.length) {
+            alert("CONGRATULATIONS!!")
+        }
+    },700);
+ }
 
 
 
@@ -102,6 +118,7 @@ function init() {
 }
 
 init();
+
 
 
 
