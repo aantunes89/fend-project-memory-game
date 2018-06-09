@@ -89,6 +89,9 @@ counter.innerHTML = 0;
 function movesCounter() { 
     move++;
     counter.innerHTML = move;
+    
+    // START RATING 
+    rating();
 }
 
 
@@ -108,15 +111,28 @@ function gameOver() {
  *  RESTART GAME 
  */
 
-let reset = document.querySelector(".restart");
+
 function restart(){
+    const reset = document.querySelector(".restart");
     reset.addEventListener("click", function() {
         deck.innerHTML = "";
         init();
     });
 }
 
+/*
+ *  RATING FUNCTION 
+ */
 
+let stars = document.querySelectorAll(".fa-star");
+function rating() {
+    if(move > 12){
+        stars[0].classList.remove("fa-star");
+        if (move > 16) {
+            stars[1].classList.remove("fa-star");
+        }
+    }
+}
 
 
 /*
