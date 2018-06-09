@@ -111,15 +111,17 @@ function gameOver() {
  *  RESTART GAME 
  */
 
+ function refresh() {
+    deck.innerHTML = "";
+    init();
+    move = 0;
+    counter.innerHTML = 0;
+}
+
 
 function restart(){
     const reset = document.querySelector(".restart");
-    reset.addEventListener("click", function() {
-        deck.innerHTML = "";
-        init();
-        move = 0;
-        counter.innerHTML = 0;
-    });
+    reset.addEventListener("click",refresh );
 }
 
 /*
@@ -130,11 +132,21 @@ let stars = document.querySelectorAll(".fa-star");
 function rating() {
     if(move > 12){
         stars[0].classList.remove("fa-star");
-        if (move > 16) {
+        if (move > 18) {
             stars[1].classList.remove("fa-star");
         }
     }
 }
+
+/*
+ *  GAME CLOCK
+ */
+
+function clock() {
+    setInterval(refresh, 5000);
+}
+
+
 
 
 /*
@@ -142,6 +154,7 @@ function rating() {
  */
 
 function init() {
+    clock();
     // shuffle(icons);
     setCards();
     matched = [];
