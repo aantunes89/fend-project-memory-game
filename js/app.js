@@ -29,12 +29,13 @@ function setCards() {
  let selected = [];
  function selectCards() {
     if(selected.length < 2){
-        if(this.classList.length > 2){
+        if(this.classList.length > 1){
             return;
-        }
-        
+        } 
         this.classList.add("open" ,"show");      
         selected.push(this);
+        
+        match();
     }
  } 
 
@@ -51,10 +52,37 @@ function missed() {
     },500);    
 }
 
+/*
+ *  MATCH FUNCTION 
+ */
 
+let matched = [];
+function match() {
+    if(selected.length === 2){
+        if(selected[0].innerHTML === selected[1].innerHTML) {
+            selected[0].classList.toggle("match");
+            selected[1].classList.toggle("match");
+            matched.push(selected[0], selected[1]);
 
+            selected = [];
+        } else {
+            missed();
+        }
+    }
+}
 
-setCards();
+/*
+ * START GAME 
+ */
+
+function init() {
+    // shuffle(icons);
+    setCards();
+    matched = [];
+}
+
+init();
+
 
 
 
@@ -145,17 +173,17 @@ setCards();
 // });
 
 
-// // Shuffle function from http://stackoverflow.com/a/2450976
-// function shuffle(array) {
-//     var currentIndex = array.length, temporaryValue, randomIndex;
+// Shuffle function from http://stackoverflow.com/a/2450976
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
 
-//     while (currentIndex !== 0) {
-//         randomIndex = Math.floor(Math.random() * currentIndex);
-//         currentIndex -= 1;
-//         temporaryValue = array[currentIndex];
-//         array[currentIndex] = array[randomIndex];
-//         array[randomIndex] = temporaryValue;
-//     }
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
 
-//     return array;
-// }
+    return array;
+}
