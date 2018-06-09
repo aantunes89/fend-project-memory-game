@@ -117,6 +117,8 @@ function restart(){
     reset.addEventListener("click", function() {
         deck.innerHTML = "";
         init();
+        move = 0;
+        counter.innerHTML = 0;
     });
 }
 
