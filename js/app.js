@@ -68,8 +68,28 @@ function match() {
         } else {
             missed();
         }
+        movesCounter();
     }
 }
+
+
+/*
+ *  COUNT MOVES 
+ */
+
+let move = 0;
+let counter = document.querySelector(".moves");
+counter.innerHTML = 0;
+function movesCounter() { 
+    move++;
+    counter.innerHTML = move;
+}
+
+
+
+
+
+
 
 /*
  * START GAME 
