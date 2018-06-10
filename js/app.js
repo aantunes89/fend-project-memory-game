@@ -21,6 +21,12 @@ counter.innerHTML = 0;
 
 let stars = document.querySelectorAll(".fa-star");
 
+// TIMER VARIABLES //
+let timer = document.querySelector(".timer");
+let hour = 0;
+let minutes = 0;
+let seconds = 0;
+let interval;
 
 // ----FUNCTIONS----- //
 
@@ -134,6 +140,12 @@ function match() {
 function movesCounter() { 
     move++;
     counter.innerHTML = move;
+    if(move === 1){
+        seconds = 0;
+        minutes = 0;
+        hour = 0;
+        clock();
+    }
     
     // START RATING 
     rating();
@@ -149,6 +161,7 @@ function gameOver() {
     setTimeout(function(){
         if(matched.length === icons.length) {
             alert("CONGRATULATIONS!!");
+            restart();
             
         }
     },700);
@@ -161,18 +174,25 @@ function gameOver() {
  */
 
  // CAN BE REUSED!!!
-function refresh() {
+function restart() {
     deck.innerHTML = "";
     init();
+
     move = 0;
     counter.innerHTML = 0;
     stars[0].classList.add("fa-star");
     stars[1].classList.add("fa-star");
+    
+    minutes = 0;
+    seconds = 0;
+    hour = 0;
+    timer.innerHTML = "Time "+ minutes+" : "+seconds;
+    clearInterval(interval)
 }
 
-function restart(){
+function refreshBtn(){
     const reset = document.querySelector(".restart");
-    reset.addEventListener("click",refresh );
+    reset.addEventListener("click",restart );
 }
 
 
@@ -197,14 +217,23 @@ function rating() {
  *  TIMER
  */
 
+
 function clock() {
-    setInterval(refresh, 60000);
+    interval = setInterval(function(){
+        timer.innerHTML = "Time "+ minutes+" : "+seconds;
+        seconds++;
+        console.log(seconds);
+        if(seconds === 60) {
+            minutes++;
+            seconds = 0
+        }
+        if(minutes === 60){
+            hour++;
+            minutes = 0;
+        }
+    },1000);
+    
 }
-
-
-
-
-
 
 
 
@@ -214,11 +243,11 @@ function clock() {
  */
 
 function init() {
-    clock();
+    timer.innerHTML = "Time "+ minutes+" : "+seconds;
     // shuffle(icons);
     setCards();
     matched = [];
-    restart();
+    refreshBtn();
 }
 
 init();
