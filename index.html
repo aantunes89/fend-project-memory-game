@@ -35,6 +35,24 @@
         </ul>
     </div>
 
+    <div id="popup" class="overlay">
+        <div class="popup_hold">
+            <h2>Well Done!!</h2>
+            <a href="#" class="close">X</a>
+            <div class="content-1">
+                You won!!!
+            </div>
+            <div class="content-2">
+                <p>Moves: <span id="totalMoves"></span> moves </p>
+                <p>Time: <span id="totalTime"></span></p>
+                <p>Rating: </p><span id="starRating"></span></p>
+            </div>
+            <button id="play-again"onclick = "playAgain()">
+                Play again
+            </button>
+        </div>
+    </div>
+
     <script src="js/app.js"></script>
 </body>
 </html>

@@ -28,6 +28,7 @@ let minutes = 0;
 let seconds = 0;
 let interval;
 
+let overlay = document.querySelector(".overlay");
 // ----FUNCTIONS----- //
 
 
@@ -162,10 +163,12 @@ function gameOver() {
         if(matched.length === icons.length) {
             alert("CONGRATULATIONS!!");
             restart();
-            
+            overlay.style.opacity = "1";
+
         }
     },700);
 }
+
 
 
 
@@ -186,7 +189,7 @@ function restart() {
     minutes = 0;
     seconds = 0;
     hour = 0;
-    timer.innerHTML = "Time "+ minutes+" : "+seconds;
+    timer.innerHTML = "Time "+ minutes +" mins : " + seconds +" secs";
     clearInterval(interval)
 }
 
@@ -220,7 +223,7 @@ function rating() {
 
 function clock() {
     interval = setInterval(function(){
-        timer.innerHTML = "Time "+ minutes+" : "+seconds;
+        timer.innerHTML = "Time "+ minutes +" mins : " + seconds +" secs";
         seconds++;
         console.log(seconds);
         if(seconds === 60) {
@@ -236,14 +239,12 @@ function clock() {
 }
 
 
-
-
 /*
  * START GAME 
  */
 
 function init() {
-    timer.innerHTML = "Time "+ minutes+" : "+seconds;
+    timer.innerHTML = "Time "+ minutes +" mins : " + seconds +" secs";
     // shuffle(icons);
     setCards();
     matched = [];
