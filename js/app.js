@@ -47,9 +47,9 @@ let closeBtn = document.querySelector(".close");
 // -----> REMOVES STARS
 function rating() {
     if(move > 12){
-        stars[0].classList.remove("fa-star");
+        stars[0].classList.remove("fa","fa-star");
         if (move > 18) {
-            stars[1].classList.remove("fa-star");
+            stars[1].classList.remove("fa","fa-star");
         }
     } 
 }
@@ -67,14 +67,14 @@ function starTime() {
     minutes = 0;
     seconds = 0;
     hour = 0;
-    timer.innerHTML = "Time "+ minutes +" mins : " + seconds +" secs";
+    timer.innerHTML = "Time "+ minutes +" min : " + seconds +" sec";
     clearInterval(interval)
 }
 
 
 function clock() {
     interval = setInterval(function(){
-        timer.innerHTML = "Time "+ minutes +" mins : " + seconds +" secs";
+        timer.innerHTML = "Time "+ minutes +" min : " + seconds +" sec";
         seconds++;
 
         if(seconds === 60) {
@@ -164,7 +164,7 @@ function congratulations() {
     totalMove.innerHTML = "Moves : "+ move;
 
     clearInterval(interval);
-    totalTime.innerHTML = "Time : "+ minutes +" mins : " +seconds+" secs";
+    totalTime.innerHTML = "Time : "+ minutes +" min : " +seconds+" sec";
 
     totalRating.innerHTML = "Stars : " + stars.length;
 
@@ -278,7 +278,7 @@ function init() {
     shuffle(icons);
     setCards();
     refreshBtn();
-    timer.innerHTML = "Time "+ minutes +" mins : " + seconds +" secs";
+    timer.innerHTML = "Time "+ minutes +" min : " + seconds +" sec";
     matched = [];
 }
 
