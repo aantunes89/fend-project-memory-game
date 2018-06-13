@@ -21,6 +21,7 @@ counter.innerHTML = 0;
 
 let stars = document.querySelectorAll(".fa-star");
 
+
 // TIMER VARIABLES //
 let timer = document.querySelector(".timer");
 let hour = 0;
@@ -30,7 +31,11 @@ let interval;
 
 // MODAL VARIABLES
 let overlay = document.querySelector(".overlay");
-
+let popup = document.querySelector("popup");
+let totalMove = document.querySelector(".totalMove");
+let totalTime = document.querySelector(".totalTime");
+let totalRating = document.querySelector(".totalRating");
+let closeBtn = document.querySelector(".close");
 
 // ----FUNCTIONS----- //
 
@@ -151,11 +156,7 @@ function gameOver() {
     },700);
 }
 
-let popup = document.querySelector("popup");
-let totalMove = document.querySelector(".totalMove");
-let totalTime = document.querySelector(".totalTime");
-let totalRating = document.querySelector(".totalRating");
-let closeBtn = document.querySelector(".close");
+
 function congratulations() {
     overlay.style.opacity = "1";
     overlay.style.zIndex = "2"
@@ -274,7 +275,7 @@ function match() {
  */
 
 function init() {
-    // shuffle(icons);
+    shuffle(icons);
     setCards();
     refreshBtn();
     timer.innerHTML = "Time "+ minutes +" mins : " + seconds +" secs";
