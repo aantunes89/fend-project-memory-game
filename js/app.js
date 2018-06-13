@@ -121,11 +121,13 @@ function movesCounter() {
 function restart() {
     deck.innerHTML = "";
     init();
-
+    overlay.style.opacity = "0";
+    overlay.style.zIndex = "-1"
     move = 0;
     counter.innerHTML = 0;
 
     starTime();
+
 }
 
 
@@ -143,15 +145,34 @@ function refreshBtn(){
 function gameOver() {
     setTimeout(function(){
         if(matched.length === icons.length) {
+
             congratulations();
         }
     },700);
 }
 
-
+let popup = document.querySelector("popup");
+let totalMove = document.querySelector(".totalMove");
+let totalTime = document.querySelector(".totalTime");
+let totalRating = document.querySelector(".totalRating");
+let closeBtn = document.querySelector(".close");
 function congratulations() {
     overlay.style.opacity = "1";
     overlay.style.zIndex = "2"
+
+    totalMove.innerHTML = "Moves : "+ move;
+
+    clearInterval(interval);
+    totalTime.innerHTML = "Time : "+ minutes +" mins : " +seconds+" secs";
+
+    totalRating.innerHTML = "Stars : " + stars.length;
+
+    closeBtn.addEventListener("click", function(){
+        overlay.style.opacity = "0";
+        overlay.style.zIndex = "-1"
+        restart();
+    });
+
 }
 
 

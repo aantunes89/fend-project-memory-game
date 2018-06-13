@@ -147,7 +147,16 @@ h1 {
 
 }
 
-.popup_hold a {
-    float: right;
-}
+.popup_hold .close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #000;
+}   
 
+.display {
+    visibility: visible;
+    opacity: 1;
+}
