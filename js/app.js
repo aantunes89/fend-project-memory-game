@@ -20,6 +20,7 @@ let counter = document.querySelector(".moves");
 counter.innerHTML = 0;
 
 let stars = document.querySelectorAll(".fa-star");
+let starsCounter = 3;
 
 
 // TIMER VARIABLES //
@@ -48,8 +49,10 @@ let closeBtn = document.querySelector(".close");
 function rating() {
     if(move > 12){
         stars[0].classList.remove("fa","fa-star");
+        starsCounter = starsCounter - 1;
         if (move > 18) {
             stars[1].classList.remove("fa","fa-star");
+            starsCounter = starsCounter - 1;
         }
     } 
 }
@@ -153,7 +156,7 @@ function gameOver() {
 
             congratulations();
         }
-    },700);
+    },500);
 }
 
 
@@ -164,9 +167,9 @@ function congratulations() {
     totalMove.innerHTML = "Moves : "+ move;
 
     clearInterval(interval);
-    totalTime.innerHTML = "Time : "+ minutes +" min : " +seconds+" sec";
+    totalTime.innerHTML = "Time : "+ minutes +" min : " + (seconds - 1) +" sec";
 
-    totalRating.innerHTML = "Stars : " + stars.length;
+    totalRating.innerHTML = "Stars : " + starsCounter;
 
     closeBtn.addEventListener("click", function(){
         overlay.style.opacity = "0";
@@ -275,7 +278,7 @@ function match() {
  */
 
 function init() {
-    shuffle(icons);
+    // shuffle(icons);
     setCards();
     refreshBtn();
     timer.innerHTML = "Time "+ minutes +" min : " + seconds +" sec";
