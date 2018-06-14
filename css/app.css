@@ -19,6 +19,7 @@ body {
 body {
     background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
+    font-size: 16px;
 }
 
 .container {
@@ -163,4 +164,33 @@ h1 {
 
 .content-1 {
     font-size: 20px;
+}
+
+@media (max-width: 667px) {
+    .container {
+        width: 85%;
+        margin: auto;
+    }
+    .deck {
+        width: 85%;
+    }
+
+    .deck .card {
+        height: 4.7rem;
+        width: 5rem;
+    }
+}
+
+@media (max-width: 557px) {
+    .container {
+        width: 90%;
+    }
+
+    .deck {
+        width: 85%;
+    }
+
+    .deck .card {
+        width: 4.5rem;
+    }
 }
