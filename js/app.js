@@ -47,15 +47,16 @@ let closeBtn = document.querySelector(".close");
  */
 // -----> REMOVES STARS
 function rating() {
-    if(move > 12){
-        stars[0].classList.remove("fa","fa-star");
-        starsCounter = starsCounter - 1;
-        if (move > 18) {
-            stars[1].classList.remove("fa","fa-star");
-            starsCounter = starsCounter - 1;
+    if(move === 13) {
+        stars[0].classList.remove("fa-star");
+        starsCounter -= 1;
+    }
+    else if (move === 19) {
+            stars[0].classList.remove("fa-star");
+            stars[1].classList.remove("fa-star");
+            starsCounter -= 1;
         }
     } 
-}
 
 // -----> STARTING RATING
 function startingRating() {
@@ -114,7 +115,6 @@ function movesCounter() {
 
     moveStart();
     // START RATING 
-    startingRating();
     rating();
 }
 
@@ -135,6 +135,8 @@ function restart() {
     counter.innerHTML = 0;
 
     starTime();
+    startingRating();
+    starsCounter = 3;
 
 }
 
@@ -278,7 +280,7 @@ function match() {
  */
 
 function init() {
-    // shuffle(icons);
+    shuffle(icons);
     setCards();
     refreshBtn();
     timer.innerHTML = "Time "+ minutes +" min : " + seconds +" sec";
