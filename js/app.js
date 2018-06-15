@@ -35,8 +35,8 @@ let overlay = document.querySelector(".overlay");
 let popup = document.querySelector("popup");
 let totalMove = document.querySelector(".totalMove");
 let totalTime = document.querySelector(".totalTime");
-let totalRating = document.querySelector(".totalRating");
 let closeBtn = document.querySelector(".close");
+let totalRating = document.querySelector(".totalRating");
 
 // ----FUNCTIONS----- //
 
@@ -47,11 +47,11 @@ let closeBtn = document.querySelector(".close");
  */
 // -----> REMOVES STARS
 function rating() {
-    if(move === 13) {
+    if(move === 17) {
         stars[0].classList.remove("fa-star");
         starsCounter -= 1;
     }
-    else if (move === 19) {
+    else if (move === 22) {
             stars[0].classList.remove("fa-star");
             stars[1].classList.remove("fa-star");
             starsCounter -= 1;
@@ -141,7 +141,7 @@ function restart() {
 }
 
 
-// ---- REFRES BUTTON ---- //
+// ---- REFRESH BUTTON ---- //
 function refreshBtn(){
     const reset = document.querySelector(".restart");
     reset.addEventListener("click",restart );
@@ -158,7 +158,7 @@ function gameOver() {
 
             congratulations();
         }
-    },500);
+    },700);
 }
 
 
@@ -173,10 +173,9 @@ function congratulations() {
 
     totalRating.innerHTML = "Stars : " + starsCounter;
 
-    closeBtn.addEventListener("click", function(){
+    closeBtn.addEventListener('click', function(){
         overlay.style.opacity = "0";
-        overlay.style.zIndex = "-1"
-        restart();
+        overlay.style.zIndex = "-1";
     });
 
 }
@@ -247,7 +246,7 @@ function missed() {
         selected[1].classList.remove("open" ,"show");
 
         selected = [];
-    },500);    
+    },800);    
 }
 
 
