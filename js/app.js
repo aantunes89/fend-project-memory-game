@@ -129,6 +129,7 @@ function movesCounter() {
 function restart() {
     deck.innerHTML = "";
     init();
+    selected = [];
     overlay.style.opacity = "0";
     overlay.style.zIndex = "-1"
     move = 0;
