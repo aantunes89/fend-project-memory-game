@@ -2,14 +2,13 @@
  *  VARIABLES
  */
 
-let icons = ["fa fa-diamond","fa fa-diamond","fa fa-paper-plane-o","fa fa-paper-plane-o",
-"fa fa-anchor","fa fa-anchor","fa fa-bolt","fa fa-bolt",
-"fa fa-cube","fa fa-cube","fa fa-leaf","fa fa-leaf",
-"fa fa-bicycle","fa fa-bicycle","fa fa-bomb","fa fa-bomb",];
+const icons = ["fa-diamond","fa-diamond","fa-paper-plane-o","fa-paper-plane-o",
+"fa-anchor","fa-anchor","fa-bolt","fa-bolt","fa-cube","fa-cube","fa-leaf","fa-leaf",
+"fa-bicycle","fa-bicycle","fa-bomb","fa-bomb"];
 
 let deck = document.querySelector(".deck");
 
-let cards = document.getElementsByClassName("card");
+const cards = document.getElementsByClassName("card");
 
 let selected = [];
 
@@ -31,11 +30,10 @@ let seconds = 0;
 let interval;
 
 // MODAL VARIABLES
-let overlay = document.querySelector(".overlay");
-let popup = document.querySelector("popup");
+const overlay = document.querySelector(".overlay");
 let totalMove = document.querySelector(".totalMove");
 let totalTime = document.querySelector(".totalTime");
-let closeBtn = document.querySelector(".close");
+const closeBtn = document.querySelector(".close");
 let totalRating = document.querySelector(".totalRating");
 
 // ----FUNCTIONS----- //
@@ -192,11 +190,15 @@ function congratulations() {
  */
 function setCards() {
     for(let i = 0; i < icons.length; i++ ) {
-        let liCard = document.createElement("li");
-        liCard.classList.add("card");
-        liCard.innerHTML = " <i class='" + icons[i] + "'></i>";
+        let liElement = document.createElement("li");
+        // let iElement = document.createElement('i');
+        liElement.classList.add("card");
+        // iElement.classList.add("fa");
+        // iElement.classList.add(icons[i]);
+        liElement.innerHTML = " <i class='"+'fa ' + icons[i] + "'></i>";
         
-        deck.appendChild(liCard);
+        // liElement.appendChild(iElement);
+        deck.appendChild(liElement);
         cards[i].addEventListener("click", selectCards);
     }
 }
