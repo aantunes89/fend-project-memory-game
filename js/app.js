@@ -15,10 +15,10 @@ let selected = [];
 let matched = [];
 
 let move = 0;
-let counter = document.querySelector(".moves");
+const counter = document.querySelector(".moves");
 counter.innerHTML = 0;
 
-let stars = document.querySelectorAll(".fa-star");
+const stars = document.querySelectorAll(".fa-star");
 let starsCounter = 3;
 
 
@@ -31,10 +31,10 @@ let interval;
 
 // MODAL VARIABLES
 const overlay = document.querySelector(".overlay");
-let totalMove = document.querySelector(".totalMove");
-let totalTime = document.querySelector(".totalTime");
+const totalMove = document.querySelector(".totalMove");
+const totalTime = document.querySelector(".totalTime");
 const closeBtn = document.querySelector(".close");
-let totalRating = document.querySelector(".totalRating");
+const totalRating = document.querySelector(".totalRating");
 
 // ----FUNCTIONS----- //
 

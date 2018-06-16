@@ -2,19 +2,27 @@
 
 ## Table of Contents
 
+* [How to Play](#how-to-play)
 * [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Dependencies](#dependencies)
 
 ## Instructions
+- Dowload or clone the repository
+- git clone https://github.com/aantunes89/fend-project-memory-game
+- Open the index.html in a browser
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## How to play
 
-To get started, open `js/app.js` and start building out the app's functionality
+- The player selects a card revealing it's underlying symbol 
+- The player selects a second card trying to match the previos card 
+- If the cards match they stay face up 
+- If it's not a match, they are face down 
+- The game ends once all cards have been correctly matched 
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+## Dependencies
 
-## Contributing
+##### Git
+- Obtain Git by : https://git-scm.com/
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+##### Visual Studio Code
+- Obtain Visual Studio Code by : https://code.visualstudio.com/
