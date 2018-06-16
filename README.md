@@ -22,7 +22,7 @@
 ## Dependencies
 
 ##### Git
-- Obtain Git by : https://git-scm.com/
+- Obtain Git at : https://git-scm.com/
 
 ##### Visual Studio Code
-- Obtain Visual Studio Code by : https://code.visualstudio.com/
+- Obtain Visual Studio Code at : https://code.visualstudio.com/
